@@ -1,0 +1,29 @@
+# This is a Databricks asset bundle definition for testbundle.
+# See https://docs.databricks.com/dev-tools/bundles/index.html for documentation.
+bundle:
+  name: testbundle
+  uuid: 26aa5db9-f953-404c-9982-4378fc7a8d32
+
+include:
+  - resources/*.yml
+
+targets:
+  dev:
+    # The default target uses 'mode: development' to create a development copy.
+    # - Deployed resources get prefixed with '[dev my_user_name]'
+    # - Any job schedules and triggers are paused by default.
+    # See also https://docs.databricks.com/dev-tools/bundles/deployment-modes.html.
+    mode: development
+    default: true
+    workspace:
+      host: https://adb-1062933311534802.2.azuredatabricks.net
+
+  prod:
+    mode: production
+    workspace:
+      host: https://adb-1062933311534802.2.azuredatabricks.net
+      # We explicitly deploy to /Workspace/Users/959e3738-57b0-40a5-829b-359f754b9f70 to make sure we only have a single copy.
+      root_path: /Workspace/Users/959e3738-57b0-40a5-829b-359f754b9f70/.bundle/${bundle.name}/${bundle.target}
+    permissions:
+      - service_principal_name: 959e3738-57b0-40a5-829b-359f754b9f70
+        level: CAN_MANAGE
