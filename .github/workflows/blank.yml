@@ -35,7 +35,8 @@ jobs:
           python-version: '3.10'
 
       - name: Install Databricks CLI
-        run: pip install databricks-cli --upgrade
+        run: winget search databricks
+        run: winget install Databricks.DatabricksCLI
 
       - name: run databricks
         run: databricks
