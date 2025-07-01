@@ -41,9 +41,7 @@ jobs:
         env:
           DATABRICKS_HOST: ${{ secrets.DATABRICKS_HOST }}
           DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
-        run: |
-          databricks
-          databricks clusters list
+        run: databricks clusters list
 
       - name: run databricks
         run: databricks fs ls
