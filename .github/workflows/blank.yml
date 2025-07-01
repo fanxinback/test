@@ -42,8 +42,8 @@ jobs:
           DATABRICKS_HOST: ${{ secrets.DATABRICKS_HOST }}
           DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
         run: |
-          databricks bundle validate
-          databricks bundle deploy
+          databricks fs ls
+          databricks clusters list
 
       - name: run databricks
         run: databricks fs ls
