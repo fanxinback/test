@@ -35,7 +35,7 @@ jobs:
           python-version: '3.10'
 
       - name: Install Databricks CLI
-        run: winget install Databricks.DatabricksCLI
+        run: curl -fsSL https://raw.githubusercontent.com/databricks/setup-cli/main/install.sh | sh
 
       - name: run databricks
         run: databricks
