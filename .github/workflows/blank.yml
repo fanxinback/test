@@ -33,7 +33,7 @@ jobs:
       - name: Install Databricks CLI
         run: curl -fsSL https://raw.githubusercontent.com/databricks/setup-cli/main/install.sh | sh
 
-      - name: check connections with workspace
+      - name: check databricks bundle with sp
         env:
           DATABRICKS_HOST: ${{ secrets.DATABRICKS_HOST }}
           # DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
